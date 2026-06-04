@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Victor · 쇼츠 제작 서비스 | 긴 영상 1개를 쇼츠 여러 개로</title>
+<meta name="description" content="긴 영상 1개에서 터질 구간을 골라 세로 쇼츠로. AI로 빠르게, 최종 판단은 사람이 — 통제권은 고객에게, 시간만 줄입니다. 첫 상담 무료.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1B4332; --green-d:#143728; --green-l:#1d5a43; --gold:#E8A33D;
+    --ink:#15171C; --muted:#5d6b63; --line:#e7ece8; --bg:#f5f8f6; --white:#fff;
+    --shadow:0 6px 24px rgba(20,55,40,.08); --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans KR',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:64px}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:999px;padding:14px 24px;font-size:16px;transition:.2s;cursor:pointer;border:0}
+  .btn-mail{background:var(--gold);color:#2a1c00;box-shadow:0 6px 18px rgba(232,163,61,.4)}
+  .btn-mail:hover{filter:brightness(1.05)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.6)}
+  .btn-line{background:#fff;color:var(--green);border:2px solid #fff}
+  section{padding:56px 0}
+  .eyebrow{color:var(--green-l);font-weight:700;font-size:14px;letter-spacing:1px}
+  h2.title{font-size:26px;font-weight:900;margin:6px 0 8px;line-height:1.3}
+  .sub{color:var(--muted);font-size:15px;max-width:640px}
+  .center{text-align:center}.center .sub{margin:0 auto}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:19px;color:var(--green)}
+  .logo .dot{width:34px;height:34px;border-radius:9px;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;letter-spacing:-1px}
+  .logo small{display:block;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:1px}
+  .nav .head-cta{display:none;font-weight:700;color:var(--green);font-size:14px;background:#eef3f0;padding:9px 16px;border-radius:999px}
+
+  /* Hero */
+  .hero{background:linear-gradient(150deg,#1B4332 0%,#143728 55%,#1d5a43 100%);color:#fff;position:relative;overflow:hidden;padding:54px 0 60px}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.06)}
+  .hero::before{content:"";position:absolute;left:-60px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:rgba(232,163,61,.14)}
+  .hero .wrap{position:relative;z-index:2}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:6px 13px;border-radius:999px;font-size:13px;font-weight:500}
+  .hero h1{font-size:32px;line-height:1.28;font-weight:900;letter-spacing:-.5px}
+  .hero h1 b{color:var(--gold)}
+  .hero p.lead{margin:14px 0 26px;font-size:16px;color:rgba(255,255,255,.9);max-width:540px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .cta-row .btn{flex:1;min-width:150px}
+
+  /* Value strip (정직 — 수치 아님) */
+  .trust{background:var(--bg);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:26px;padding-bottom:26px}
+  .stat{text-align:center}
+  .stat .n{font-size:21px;font-weight:900;color:var(--green)}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:3px}
+
+  .grid{display:grid;gap:14px}
+  .cols-2{grid-template-columns:1fr}
+  .cols-3{grid-template-columns:1fr}
+  .cols-4{grid-template-columns:1fr 1fr}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .card .ico{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#e8f1ec,#eef6ea);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:12px}
+  .card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+  .card p{font-size:14px;color:var(--muted)}
+
+  .soft{background:var(--bg)}
+
+  /* Feature list */
+  .feat{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .feat .num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .feat h3{font-size:16px;font-weight:700;margin-bottom:3px}
+  .feat p{font-size:14px;color:var(--muted)}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}
+  .step .k{font-size:13px;color:var(--green-l);font-weight:700}
+  .step .t{font-weight:700;margin-top:4px}
+  .step .d{font-size:13px;color:var(--muted);margin-top:4px}
+
+  /* Gallery placeholder */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ph{aspect-ratio:9/16;border-radius:var(--radius);background:linear-gradient(135deg,#e8f1ec,#eef6ea);display:flex;align-items:center;justify-content:center;color:#6f8478;font-size:13px;text-align:center;border:1px dashed #b9d4c4;padding:10px}
+
+  /* Final CTA */
+  .final{background:linear-gradient(135deg,#143728,#1d5a43);color:#fff;text-align:center;border-radius:24px;padding:40px 24px;margin:0 20px}
+  .final h2{font-size:24px;font-weight:900}
+  .final .big{font-size:24px;font-weight:900;margin:14px 0;letter-spacing:.5px}
+  .final .big a{color:var(--gold)}
+
+  /* Footer */
+  footer{background:#15171C;color:#9fb0a6;font-size:13px;padding:34px 0 26px;margin-top:50px}
+  footer .ft-logo{color:#fff;font-weight:900;font-size:17px;margin-bottom:10px}
+  footer .row{line-height:1.9}
+  footer a{color:var(--gold)}
+  footer .small{color:#67786e;margin-top:12px;font-size:12px}
+
+  /* Sticky mobile bar */
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+  .callbar a{flex:1;text-align:center;padding:15px 8px;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;gap:7px}
+  .callbar .c1{background:var(--gold);color:#2a1c00}
+  .callbar .c2{color:var(--green)}
+
+  .note{background:#fdf6e9;border:1px dashed #e8c987;color:#8a6400;font-size:12px;padding:10px 14px;border-radius:10px;margin:18px 20px 0;text-align:center}
+
+  /* FAQ accordion */
+  .faq{max-width:760px;margin:24px auto 0}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--green);font-size:22px;font-weight:900;flex:none}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{padding:0 18px 16px;font-size:14px;color:var(--muted);line-height:1.7}
+
+  /* Inquiry form */
+  .form{max-width:520px;margin:22px auto 0;text-align:left}
+  .form .field{margin-bottom:14px}
+  .form label{display:block;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+  .form label .req{color:#e0455e}
+  .form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff}
+  .form input:focus,.form textarea:focus{outline:2px solid var(--green-l);border-color:var(--green-l)}
+  .form textarea{min-height:96px;resize:vertical}
+  .form .consent{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 14px}
+  .form .consent input{width:18px;height:18px;flex:none;margin-top:1px}
+  .form .submit{width:100%;background:var(--green);color:#fff;font-weight:900;font-size:16px;border:0;border-radius:999px;padding:15px;cursor:pointer}
+  .form .submit:hover{background:var(--green-d)}
+  .form .formnote{font-size:12px;color:#8a6400;background:#fdf6e9;border:1px dashed #e8c987;border-radius:10px;padding:9px 12px;margin-top:12px;text-align:center}
+
+  /* Desktop */
+  @media(min-width:760px){
+    .nav .head-cta{display:block}
+    section{padding:72px 0}
+    .hero{padding:78px 0 84px}
+    .hero h1{font-size:46px}
+    h2.title{font-size:32px}
+    .cta-row{max-width:460px}
+    .cols-2{grid-template-columns:1fr 1fr}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-4{grid-template-columns:repeat(4,1fr)}
+    .steps{grid-template-columns:repeat(4,1fr)}
+    .gallery{grid-template-columns:repeat(4,1fr)}
+    body{padding-bottom:0}
+    .callbar{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="dot">TV</span>
+      <span>Team Victor<small>영상 쇼츠 제작</small></span>
+    </a>
+    <a href="#contact" class="head-cta">✉ 문의하기</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="badge-row">
+      <span class="badge">✔ 원본 1개부터</span>
+      <span class="badge">✔ 사람이 직접 확인</span>
+      <span class="badge">✔ 첫 상담 무료</span>
+      <span class="badge">✔ 통제권은 고객에게</span>
+    </div>
+    <h1>긴 영상 1개를,<br><b>쇼츠 여러 개</b>로.</h1>
+    <p class="lead">어디를 자를지 고르는 것부터 맡기세요. AI로 빠르게, 최종 판단은 사람이 —
+      <b>통제권은 고객에게, 시간만 줄입니다.</b></p>
+    <div class="cta-row">
+      <a href="mailto:teamvictor.labs@gmail.com?subject=쇼츠%20제작%20문의" class="btn btn-mail">✉ 이메일로 문의하기</a>
+      <a href="#how" class="btn btn-ghost">작업 방식 보기</a>
+    </div>
+  </div>
+</div>
+
+<!-- VALUE STRIP (정직 — 수치 아님) -->
+<div class="trust">
+  <div class="wrap">
+    <div class="stat"><div class="n">원본 1개</div><div class="l">부터 시작 — 부담 없이</div></div>
+    <div class="stat"><div class="n">사람이 확인</div><div class="l">납품 전 내용·자막 점검</div></div>
+    <div class="stat"><div class="n">첫 상담 무료</div><div class="l">견적·일정 함께 협의</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="soft">
+  <div class="wrap center">
+    <span class="eyebrow">CHECK</span>
+    <h2 class="title">혹시 이런 고민, 있으신가요?</h2>
+    <p class="sub">소재가 부족한 게 아닙니다. 좋은 순간은 많은데, 그걸 <b>꺼내는 데</b> 시간이 듭니다.</p>
+  </div>
+  <div class="wrap grid cols-4" style="margin-top:26px">
+    <div class="card"><div class="ico">🎬</div><h3>쌓인 긴 영상</h3><p>촬영본·라이브·강의가 쌓였는데 쇼츠로 못 빼고 있어요</p></div>
+    <div class="card"><div class="ico">✂️</div><h3>어디를 자를지</h3><p>터질 구간 고르고 제목·자막 정하는 게 가장 오래 걸려요</p></div>
+    <div class="card"><div class="ico">🛠️</div><h3>편집툴이 부담</h3><p>편집 프로그램이 손에 안 익어 클립화가 막막해요</p></div>
+    <div class="card"><div class="ico">⏰</div><h3>올릴 시간이 없음</h3><p>콘텐츠는 쌓이는데 편집할 시간이 도무지 안 나요</p></div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="how">
+  <div class="wrap center">
+    <span class="eyebrow">SOLUTION</span>
+    <h2 class="title">우리가 하는 것</h2>
+    <p class="sub">가장 어려운 <b>'고르는 눈'</b>부터 맡아 드립니다. 긴 원본에서 터질 가능성이 있는
+      구간을 후보로 추리고, 세로 쇼츠 편집까지 마칩니다 — 최종 선택은 늘 고객님이.</p>
+  </div>
+  <div class="wrap grid cols-3" style="margin-top:26px">
+    <div class="card"><div class="ico">🔎</div><h3>하이라이트 후보 선별</h3><p>긴 원본에서 터질 가능성이 있는 구간을 골라 후보로 추립니다</p></div>
+    <div class="card"><div class="ico">📱</div><h3>세로 쇼츠 편집</h3><p>9:16 변환 · 자막 · 톤 보정 · 효과 · BGM까지</p></div>
+    <div class="card"><div class="ico">✏️</div><h3>제목·자막 제안</h3><p>시선을 끄는 카피를 제안해 드립니다 (최종 선택은 고객님)</p></div>
+  </div>
+  <div class="wrap gallery" style="margin-top:26px">
+    <div class="ph">Before<br>원본 한 장면</div>
+    <div class="ph">After<br>완성 쇼츠</div>
+    <div class="ph">자막·효과<br>예시</div>
+    <div class="ph">샘플<br>준비 중</div>
+  </div>
+  <p class="note">📷 위는 자리표시(placeholder)입니다 — 권리가 깨끗한 <b>실제 Before/After 샘플</b>로 교체 예정.</p>
+</section>
+
+<!-- WHY US -->
+<section class="soft">
+  <div class="wrap center">
+    <span class="eyebrow">WHY TEAM VICTOR</span>
+    <h2 class="title">왜 우리에게 맡기나</h2>
+  </div>
+  <div class="wrap grid cols-2" style="margin-top:26px">
+    <div class="feat"><div class="num">1</div><div><h3>사람이 최종 판단</h3><p>기계가 다 끝내고 던지지 않습니다. 채널 색깔을 뭉개는 자동 양산이 아니에요.</p></div></div>
+    <div class="feat"><div class="num">2</div><div><h3>통제권은 고객에게</h3><p>자를지·고칠지·버릴지 — 결정은 고객님 몫. 저희는 시간만 줄여 드립니다.</p></div></div>
+    <div class="feat"><div class="num">3</div><div><h3>내용은 함께 확인</h3><p>음성 내용·자막은 납품 전 고객님 확인을 거쳐 정확성을 맞춥니다.</p></div></div>
+    <div class="feat"><div class="num">4</div><div><h3>정직한 범위</h3><p>원본 1개 단위로 작업합니다. 여러 영상을 섞어 새 스토리를 만드는 건 아직 범위 밖이에요.</p></div></div>
+    <div class="feat"><div class="num">5</div><div><h3>완성형까지 한 번에</h3><p>컷·자막·톤 보정·효과·BGM까지, 올릴 수 있는 형태로 드립니다.</p></div></div>
+    <div class="feat" style="background:linear-gradient(135deg,#1B4332,#1d5a43);color:#fff;border:0"><div class="num" style="background:var(--gold);color:#2a1c00">✓</div><div><h3 style="color:#fff">첫 상담은 무료</h3><p style="color:rgba(255,255,255,.9)">원본 한 편으로 부담 없이 시작하세요.</p></div></div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="wrap center">
+    <span class="eyebrow">PROCESS</span>
+    <h2 class="title">작업 과정</h2>
+  </div>
+  <div class="wrap steps" style="margin-top:26px">
+    <div class="step"><div class="k">STEP 1</div><div class="t">원본 전달</div><div class="d">영상 또는 링크 공유</div></div>
+    <div class="step"><div class="k">STEP 2</div><div class="t">후보 선별·설계</div><div class="d">터질 구간 + 제목·자막안</div></div>
+    <div class="step"><div class="k">STEP 3</div><div class="t">편집</div><div class="d">세로 변환·자막·효과·BGM</div></div>
+    <div class="step"><div class="k">STEP 4</div><div class="t">확인·납품</div><div class="d">고객 확인 후 최종 전달</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="soft">
+  <div class="wrap center">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="title">자주 묻는 질문</h2>
+    <p class="sub">문의 전에 궁금하신 점을 먼저 확인하세요.</p>
+  </div>
+  <div class="wrap faq">
+    <details open><summary>정말 편집 시간이 줄어드나요?</summary><div class="a">가장 오래 걸리는 '어디를 자를지' 1차 판단을 저희가 후보로 잡아 드립니다. 처음부터 다 돌려보지 않아도 되고, 최종 결정만 하시면 됩니다.</div></details>
+    <details><summary>AI가 만든 거라 어색하지 않나요?</summary><div class="a">기계가 다 끝내고 던지지 않습니다. 컷·자막·내용은 사람이 확인하고, 납품 전 고객님 확인도 거칩니다.</div></details>
+    <details><summary>비용은 얼마인가요?</summary><div class="a">원본 1개 → 쇼츠 N개 단위로 견적을 냅니다. 원본 길이·쇼츠 개수·편집 수준에 따라 달라지며, 문의 시 함께 협의해 드립니다. 첫 상담은 무료입니다.</div></details>
+    <details><summary>수정은 되나요?</summary><div class="a">됩니다. 회차 기준으로 협의해 드립니다.</div></details>
+    <details><summary>어떤 영상이든 되나요?</summary><div class="a">긴 원본 1개에서 쇼츠를 뽑는 작업이 가장 잘 맞습니다. 여러 영상을 섞어 새 스토리를 만드는 작업은 아직 범위 밖이에요.</div></details>
+  </div>
+</section>
+
+<!-- FINAL CTA + FORM -->
+<section id="contact" style="padding-top:10px">
+  <div class="final">
+    <h2>지금 바로 상담받으세요</h2>
+    <p style="opacity:.9;margin-top:6px">원본 한 편이면 충분합니다 · 첫 상담 무료</p>
+    <div class="big">✉ <a href="mailto:teamvictor.labs@gmail.com?subject=쇼츠%20제작%20문의">teamvictor.labs@gmail.com</a></div>
+    <div class="cta-row" style="justify-content:center;margin-top:6px">
+      <a href="mailto:teamvictor.labs@gmail.com?subject=쇼츠%20제작%20문의" class="btn btn-line">✉ 이메일 보내기</a>
+    </div>
+  </div>
+
+  <!-- 온라인 문의 폼 -->
+  <div class="wrap center" style="margin-top:36px">
+    <span class="eyebrow">ONLINE</span>
+    <h2 class="title">온라인 문의</h2>
+    <p class="sub">메일이 번거로우시면, 아래에 남겨주세요. 사람이 직접 확인하고 연락드립니다.</p>
+  </div>
+  <form class="form" onsubmit="return false">
+    <div class="field">
+      <label for="f-name">이름 / 채널명 <span class="req">*</span></label>
+      <input id="f-name" name="name" type="text" autocomplete="name" placeholder="홍길동 / OO 채널" required>
+    </div>
+    <div class="field">
+      <label for="f-contact">연락처(이메일 또는 전화) <span class="req">*</span></label>
+      <input id="f-contact" name="contact" type="text" autocomplete="email" placeholder="hong@email.com 또는 010-1234-5678" required>
+    </div>
+    <div class="field">
+      <label for="f-msg">원본 · 문의 내용 <span class="req">*</span></label>
+      <textarea id="f-msg" name="message" placeholder="예) 30분짜리 강의 영상 1개 → 쇼츠 3개 / 차분한 톤 / 다음 주까지" required></textarea>
+    </div>
+    <label class="consent">
+      <input type="checkbox" required>
+      <span>개인정보(이름·연락처) 수집·이용에 동의합니다. 수집 목적: 상담·작업 안내 / 보유기간: 상담 종료 후 즉시 파기. <a href="#">전문 보기</a></span>
+    </label>
+    <button type="submit" class="submit">문의 보내기</button>
+    <p class="formnote">⚠️ 본 폼은 시안용 — 실제 제출 도착지(메일/관리자)·개인정보처리방침은 <b>연결 예정</b>입니다. 지금은 위 이메일로 문의해 주세요.</p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-logo">Team Victor <span style="font-weight:500;font-size:13px;color:#9fb0a6">· 영상 쇼츠 제작</span></div>
+    <div class="row">
+      문의: <a href="mailto:teamvictor.labs@gmail.com">teamvictor.labs@gmail.com</a><br>
+      자동 발송 아님 — 사람이 직접 확인하고 응대합니다.
+    </div>
+    <div class="small">
+      ⚠️ 본 페이지는 <b>방향 제안용 초안(v1)</b>입니다. 샘플·후기·사업자 정보·폼 도착지는 확정 후 게재됩니다.<br>
+      © 2026 Team Victor
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="callbar">
+  <a href="#contact" class="c2">📝 온라인 문의</a>
+  <a href="mailto:teamvictor.labs@gmail.com?subject=쇼츠%20제작%20문의" class="c1">✉ 이메일 보내기</a>
+</div>
+
+</body>
+</html>
