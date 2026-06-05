@@ -14,7 +14,8 @@
 - `demo-before.jpg` — 원본 프레임을 9:16 안에 레터박스 (가로 원본 표현)
 - `demo-after.jpg` · `demo-after2.jpg` — 9:16 세로 크롭 + 한글 자막 + 브랜드색
 - `demo-effect.jpg` — 9:16 크롭 + 자막·효과 표현
-- 제작: ffmpeg (crop·scale·drawbox·drawtext, NotoSansKR). 음성/내용 변형 없음.
+- `demo.mp4` — Before→After 데모 영상 8.4초(가로 원본→세로 전환→자막 완성본→브랜드 마감카드). 720×1280·무음. `demo-poster.jpg` = 재생 전 포스터.
+- 제작: ffmpeg (crop·scale·pad·xfade·drawbox·drawtext, NotoSansKR). 음성/내용 변형 없음.
 
 > 🛑 갤러리에는 *"무료 스톡 영상(Mixkit)으로 만든 실제 편집 데모"* 로 투명 표기됨.
 > 고객 실작업물로 교체 시, 해당 고객의 게재 동의를 받은 뒤 본 기록도 갱신할 것.
