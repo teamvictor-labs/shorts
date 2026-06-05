@@ -14,7 +14,7 @@
 - `demo-before.jpg` — 원본 프레임을 9:16 안에 레터박스 (가로 원본 표현)
 - `demo-after.jpg` · `demo-after2.jpg` — 9:16 세로 크롭 + 한글 자막 + 브랜드색
 - `demo-effect.jpg` — 9:16 크롭 + 자막·효과 표현
-- `demo.mp4` — Before→After 데모 영상 8.4초(가로 원본→세로 전환→자막 완성본→브랜드 마감카드). 720×1280·무음. `demo-poster.jpg` = 재생 전 포스터.
+- `demo.mp4` — Before→After 데모 영상 9.9초(가로 원본→세로 전환→자막 완성본→**서비스 체크리스트 마감카드**) + BGM. 720×1280. `demo-poster.jpg` = 재생 전 포스터.
 - 제작: ffmpeg (crop·scale·pad·xfade·drawbox·drawtext, NotoSansKR). 음성/내용 변형 없음.
 
 ## 배경음악(BGM) — `demo.mp4`
