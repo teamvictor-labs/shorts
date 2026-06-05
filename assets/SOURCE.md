@@ -17,5 +17,13 @@
 - `demo.mp4` — Before→After 데모 영상 8.4초(가로 원본→세로 전환→자막 완성본→브랜드 마감카드). 720×1280·무음. `demo-poster.jpg` = 재생 전 포스터.
 - 제작: ffmpeg (crop·scale·pad·xfade·drawbox·drawtext, NotoSansKR). 음성/내용 변형 없음.
 
+## 배경음악(BGM) — `demo.mp4`
+- **곡:** "Curiosity" — Diego Nava (Mixkit Music, id 480)
+- **다운로드:** https://assets.mixkit.co/music/480/480.mp3
+- **라이선스:** Mixkit Stock Music Free License — **상업·개인 사용 가능, 출처 표기 불필요**
+- **확보일:** 2026-06-05. 데모 영상에 메인 구간 8.4초를 페이드 인/아웃·볼륨 0.85로 입힘.
+
+---
+
 > 🛑 갤러리에는 *"무료 스톡 영상(Mixkit)으로 만든 실제 편집 데모"* 로 투명 표기됨.
 > 고객 실작업물로 교체 시, 해당 고객의 게재 동의를 받은 뒤 본 기록도 갱신할 것.
